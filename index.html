@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+		<link href="./output.css" rel="stylesheet" />
+		<title>Front-End-Chat</title>
+		<link
+			href="https://pro.fontawesome.com/releases/v6.0.0/css/all.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="chat">
+			<h2 class="label">Front End Chat</h2>
+			<div id="chat"></div>
+			<div class="inputBtn">
+				<input
+					type="text"
+					id="input"
+					placeholder="Type a message"
+					class="text-gray-500 p-5"
+				/>
+				<button
+					type="button"
+					title="Send Message"
+					class="text-2xl font-bold"
+					onclick="sendMessage()"
+				>
+					send
+				</button>
+			</div>
+		</div>
+		<script src="scripts.js"></script>
+	</body>
+</html>
