@@ -4,29 +4,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta charset="UTF-8" />
 		<title>Front-End-Chat</title>
-		<link
-			href="https://pro.fontawesome.com/releases/v6.0.0/css/all.css"
-			rel="stylesheet"
-		/>
-		<link href="./output.css" rel="stylesheet" />
+		<link href="./src/output.css" rel="stylesheet" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
 		<div class="chat">
 			<h2 class="label">Front End Chat</h2>
-			<div id="chat"></div>
-			<div class="inputBtn">
+			<div
+				id="chat"
+				class="bg-white shadow-md rounded-xl h-[500px] p-5 overflow-y-auto mb-2 text-[13px]"
+			></div>
+			<div class="flex gap-2">
 				<input
 					type="text"
 					id="input"
 					placeholder="Type a message"
-					class="text-2xl text-green-700"
+					class="text-1 bg-white text-gray-500 p-3 w-full rounded-xl shadow-md"
 				/>
 
 				<button
 					type="button"
-					title="Send Message"
-					class="text-2xl text-gray-700 color-secondary-1"
+					class="text-1 bg-white text-gray-500 px-3 py-2 shadow-md rounded-xl cursor-pointer outline-none hover:bg-gray-200"
 					onclick="sendMessage()"
 				>
 					send
