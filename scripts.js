@@ -1,5 +1,7 @@
+let lastRenderedIndex = 0;
 let messages = [];
 const chatBox = document.getElementById("chat");
+const messageContainer = document.querySelector(".message-container");
 
 function fakeServerGetMessages() {
 	return new Promise((resolve) => {
@@ -9,19 +11,45 @@ function fakeServerGetMessages() {
 
 function fakeServerSendMessage(msg) {
 	messages.push({ from: "user", message: msg });
-	messages.push({ from: "bot", message: "Echo: " + msg });
+	messages.push({ from: "bot", message: msg });
 }
 
 function updateChat(data) {
-	chatBox.innerHTML = "";
-	data.forEach((msg) => {
-		const div = document.createElement("div");
-		div.className =
+	for (let i = lastRenderedIndex; i < data.length; i++) {
+		const msg = data[i];
+		const completeMessage = document.createElement("div");
+		const userIcon = document.createElement("img");
+		const message = document.createElement("div");
+
+		userIcon.src = "icon.jpg";
+
+		userIcon.className = "user-icon";
+		completeMessage.className = "complete-message";
+		message.className =
 			"message " + (msg.from === "user" ? "from-user" : "from-bot");
-		div.textContent = `${msg.from}: ${msg.message}`;
-		chatBox.appendChild(div);
-	});
+
+		message.textContent = `${msg.from}: ${msg.message}`;
+
+		// Complete message
+		completeMessage.appendChild(userIcon);
+		completeMessage.appendChild(message);
+
+		if (msg.from === "bot") {
+			setTimeout(() => {
+				message.textContent = `${msg.from}: . . .`;
+				chatBox.appendChild(completeMessage);
+			}, 1000);
+
+			setTimeout(() => {
+				message.textContent = `${msg.from}: ${msg.message}`;
+				chatBox.appendChild(completeMessage);
+			}, 4000);
+		} else {
+			chatBox.appendChild(completeMessage);
+		}
+	}
 	chatBox.scrollTop = chatBox.scrollHeight;
+	lastRenderedIndex = data.length;
 }
 
 function sendMessage() {
@@ -33,6 +61,12 @@ function sendMessage() {
 	}
 }
 
-setInterval(() => {
-	fakeServerGetMessages().then((data) => updateChat(data));
-}, 1000);
+function start() {
+	setInterval(() => {
+		fakeServerGetMessages().then((data) => updateChat(data));
+	}, 1000);
+
+	console.log("Chat started!");
+}
+
+start();
