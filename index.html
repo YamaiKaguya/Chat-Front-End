@@ -17,11 +17,21 @@
 	justify-center
 	items-center
 	">
-	<div class="chat
-		h-fit
-		p-2.5">
-
-		<div id="chat" class="
+	<main>
+		<h2 class="
+		text-3xl
+		text-center
+		text-gray-700
+		font-bold
+		bg-white
+		p-2.5
+		rounded-[8px]
+		mb-2
+		">
+			Front-End Chat
+		</h2>
+		<div class="chatContainer">
+			<div id="chat" class="
 			bg-white
 			shadow-md
 			rounded-xl
@@ -31,43 +41,35 @@
 			mb-2
 			text-[13px]
 			">
-			<h2 class="
-			text-3xl
-			text-center
-			text-gray-600
-			font-bold
-			mb-10
-			">
-				Front End Only Chat App
-			</h2>
-		</div>
-		<div class="flex gap-2">
-			<input type="text" id="input" placeholder="Type a message" class="
-				w-full
-				p-3
-				text-base
-				text-gray-700
-				bg-white
-				rounded-xl
-				shadow-md" />
+			</div>
+			<div class="flex gap-2">
+				<input type="text" id="input" placeholder="Type a message" class="
+			w-full
+			p-3
+			text-base
+			text-gray-900
+			bg-white
+			rounded-xl
+			shadow-md" />
 
-			<button type="button" class="
-				text-base
-				bg-white
-				text-gray-700
-				px-3 py-2
-				shadow-md
-				rounded-xl
-				cursor-pointer
-				outline-none
-				hover:text-custom-hover
-				focus:text-custom-hover
-				" onclick="sendMessage()">
-				send
-			</button>
-		</div>
+				<button type="button" class="
+					text-base
+					bg-white
+					text-gray-700
+					px-3 py-2
+					shadow-md
+					rounded-xl
+					cursor-pointer
+					outline-none
+					hover:text-custom-hover
+					focus:text-custom-hover
+					" onclick="sendMessage()">
+					send
+				</button>
+			</div>
 
-	</div>
+		</div>
+	</main>
 	<script src="scripts.js"></script>
 </body>
 

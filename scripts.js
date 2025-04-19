@@ -16,7 +16,7 @@ function fakeServerSendMessage(msg) {
 function updateChat(data) {
 	for (let i = lastRenderedIndex; i < data.length; i++) {
 		const msg = data[i];
-		const completeMessage = document.createElement("div");
+		const completeMessage = document.createElement("span");
 		const userIcon = document.createElement("img");
 		const message = document.createElement("div");
 
@@ -34,20 +34,22 @@ function updateChat(data) {
 			setTimeout(() => {
 				message.textContent = ` . . .`;
 				chatBox.appendChild(completeMessage);
+				chatBox.scrollTop = chatBox.scrollHeight;
 			}, 1000);
 
 			setTimeout(() => {
 				message.textContent = ` ${msg.message}`;
 				chatBox.appendChild(completeMessage);
+				chatBox.scrollTop = chatBox.scrollHeight;
 			}, 4000);
 		} else {
 			completeMessage.appendChild(message);
 			completeMessage.appendChild(userIcon);
 
 			chatBox.appendChild(completeMessage);
+			chatBox.scrollTop = chatBox.scrollHeight;
 		}
 	}
-	chatBox.scrollTop = chatBox.scrollHeight;
 	lastRenderedIndex = data.length;
 }
 
