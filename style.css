@@ -5,14 +5,28 @@ body {
 
 main {
 	overflow: hidden;
-	width: clamp(500px, 50%, 50%);
+	width: clamp(100px, 40%, 50%);
+	height: clamp(100px, 70%, 100%);
 	padding: 10px;
 	background-color: rgb(198, 197, 201);
 	border-radius: 8px;
+	box-sizing: border-box;
+
+	display: flex;
+	flex-direction: column;
 }
 
 .chatContainer {
-	overflow-x: auto;
+	background-color: rgb(255, 0, 149);
+
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#chat {
+	flex: 1;
+	overflow-y: auto;
 }
 
 input[type="text"]:focus,
