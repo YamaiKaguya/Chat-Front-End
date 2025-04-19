@@ -21,7 +21,7 @@ function updateChat(data) {
 		const message = document.createElement("div");
 
 		userIcon.className = "user-icon";
-		userIcon.src = "icon.jpg";
+		userIcon.src = "src/images/icon.jpg";
 		completeMessage.className = "complete-message";
 		message.className =
 			"message " + (msg.from === "user" ? "from-user" : "from-bot");
