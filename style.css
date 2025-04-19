@@ -53,6 +53,5 @@ input[type="text"]:hover {
 	background-color: #8892a7;
 	border-radius: 10px;
 	word-break: break-all;
-
 	/* overflow-wrap: break-word; */
 }
