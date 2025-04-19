@@ -1,9 +1,8 @@
 let lastRenderedIndex = 0;
 let messages = [];
 const chatBox = document.getElementById("chat");
-const messageContainer = document.querySelector(".message-container");
 
-function fakeServerGetMessages() {
+function fakeServer() {
 	return new Promise((resolve) => {
 		resolve([...messages]);
 	});
@@ -21,30 +20,30 @@ function updateChat(data) {
 		const userIcon = document.createElement("img");
 		const message = document.createElement("div");
 
-		userIcon.src = "icon.jpg";
-
 		userIcon.className = "user-icon";
+		userIcon.src = "icon.jpg";
 		completeMessage.className = "complete-message";
 		message.className =
 			"message " + (msg.from === "user" ? "from-user" : "from-bot");
-
-		message.textContent = `${msg.from}: ${msg.message}`;
-
-		// Complete message
-		completeMessage.appendChild(userIcon);
-		completeMessage.appendChild(message);
+		message.textContent = `${msg.message} `;
 
 		if (msg.from === "bot") {
+			completeMessage.appendChild(userIcon);
+			completeMessage.appendChild(message);
+
 			setTimeout(() => {
-				message.textContent = `${msg.from}: . . .`;
+				message.textContent = ` . . .`;
 				chatBox.appendChild(completeMessage);
 			}, 1000);
 
 			setTimeout(() => {
-				message.textContent = `${msg.from}: ${msg.message}`;
+				message.textContent = ` ${msg.message}`;
 				chatBox.appendChild(completeMessage);
 			}, 4000);
 		} else {
+			completeMessage.appendChild(message);
+			completeMessage.appendChild(userIcon);
+
 			chatBox.appendChild(completeMessage);
 		}
 	}
@@ -63,7 +62,7 @@ function sendMessage() {
 
 function start() {
 	setInterval(() => {
-		fakeServerGetMessages().then((data) => updateChat(data));
+		fakeServer().then((data) => updateChat(data));
 	}, 1000);
 
 	console.log("Chat started!");
