@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script src="server.js" type="module" defer></script>
+	<script src="modules.js" type="module" defer></script>
 </head>
 
 <body class="
@@ -49,7 +52,7 @@
 					shadow-md
 					cursor-text" />
 
-				<button type="button" class="
+				<button type="button" id="sendButton" class="
 					text-base
 					bg-white
 					text-gray-700
@@ -58,16 +61,13 @@
 					cursor-pointer
 					outline-none
 					hover:text-custom-hover
-					focus:text-custom-hover
-					" onclick="sendMessage()">
-					<!-- <img src="send.svg" alt="" class="send"> -->
-					<i class="fa-solid fa-paper-plane"></i>
+					focus:text-custom-hover"">ddd
+					<!-- <img src=" send.svg" alt="" class="send"> -->
+					<!-- <i class="fa-solid fa-paper-plane"></i> -->
 				</button>
 			</div>
 		</div>
 	</main>
-	<script src="server.js" type="module" defer></script>
-	<script src="modules.js" type="module" defer></script>
 </body>
 
 </html>

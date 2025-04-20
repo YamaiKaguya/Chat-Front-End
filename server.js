@@ -1,17 +1,19 @@
 import createMessageElement from "./modules.js";
 
+// window.sendMessage = sendMessage;
+
 let lastRenderedIndex = 0;
 let messages = [];
 
 document.addEventListener("keydown", function (event) {
 	if (event.key === "Enter") {
-		// event.preventDefault();
 		sendMessage();
 	}
 });
 
-// If you're inside a <form>, pressing Enter would normally submit the form.
-// If you're inside a <textarea>, it would create a new line.
+document.getElementById("sendButton").addEventListener("click", function () {
+	sendMessage();
+});
 
 function fakeServer() {
 	return new Promise((resolve) => {
