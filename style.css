@@ -9,13 +9,11 @@ body {
 main {
 	width: clamp(450px, 35%, 50%);
 	height: clamp(400px, 100%, 100%);
-	padding: 10px;
+	/* padding: 10px; */
 
 	display: flex;
 	flex-direction: column;
 }
-
-/* .footers {} */
 
 .chatContainer {
 	flex: 1;
@@ -52,14 +50,21 @@ input[type="text"]:hover {
 	gap: 5px;
 }
 
-.complete-message > .from-user {
-	color: rgb(255, 255, 255);
-	margin-left: auto;
+.complete-message.user-message {
+	padding-left: 45px;
+	& > :nth-child(1) {
+		color: rgb(255, 255, 255);
+		margin-left: auto;
+	}
 }
-.complete-message > .from-bot {
-	color: black;
-	background-color: white;
-	margin-right: auto;
+
+.complete-message.bot-message {
+	padding-right: 45px;
+	& > :nth-child(2) {
+		color: black;
+		background-color: white;
+		margin-right: auto;
+	}
 }
 
 /* yung height ng icon is binabago nya rin yung contaiienr nung message why is that?*/

@@ -3,18 +3,18 @@ const createMessageElement = (msg) => {
 	const icon = document.createElement("img");
 	const text = document.createElement("div");
 
-	fullMessage.className = "complete-message";
 	icon.className = "user-icon";
 	icon.src = "src/images/icon.jpg";
 
-	text.className =
-		"message " + (msg.from === "user" ? "from-user" : "from-bot");
+	text.className = "message";
 	text.textContent = msg.message;
 
 	if (msg.from === "bot") {
+		fullMessage.className = "bot-message complete-message";
 		fullMessage.appendChild(icon);
 		fullMessage.appendChild(text);
 	} else {
+		fullMessage.className = "user-message complete-message";
 		fullMessage.appendChild(text);
 		fullMessage.appendChild(icon);
 	}

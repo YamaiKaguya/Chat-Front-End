@@ -36,9 +36,8 @@ function updateChat(data) {
 		const { fullMessage, text, msg } = createMessageElement(data[i]);
 
 		if (msg.from === "bot") {
-			text.textContent = " . . .";
-
 			setTimeout(() => {
+				text.textContent = " . . .";
 				appendMessageToChat(fullMessage);
 			}, 1000);
 
